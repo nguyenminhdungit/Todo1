@@ -22,7 +22,6 @@ function Todo({ todo = {}, onRemove = null, onEdit = null }) {
   };
   const handleOnChange = (e) => {
     const name = e.target.value;
-
     setValue(name);
   };
   const handleSave = () => {
@@ -79,7 +78,12 @@ function Todo({ todo = {}, onRemove = null, onEdit = null }) {
           <span onClick={handleSave}>
             <i className="fa-solid fa-check"></i>
           </span>
-          <span onClick={() => setShowEdit(!ShowEdit)}>
+          <span
+            onClick={() => {
+              setValue(todo.name);
+              setShowEdit(!ShowEdit);
+            }}
+          >
             <i className="fa-solid fa-ban"></i>
           </span>
         </>
