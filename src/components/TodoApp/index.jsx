@@ -6,7 +6,13 @@ TodoApp.propTypes = {};
 
 function TodoApp() {
   const [todos, setTodo] = useState(() => {
-    return localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : [];
+    return localStorage.getItem('todos')
+      ? JSON.parse(localStorage.getItem('todos'))
+      : [
+          { id: 1, name: 'home work', status: 'pending' },
+          { id: 2, name: 'play game', status: 'pending' },
+          { id: 3, name: 'cooking', status: 'pending' },
+        ];
   });
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
